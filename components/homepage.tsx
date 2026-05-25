@@ -323,11 +323,7 @@ export default function HomePage() {
 
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
-              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in the Quispamsis area, NB</p>
-            </div>
+          <div className="flex flex-col items-center gap-4 text-center">
             <nav className="hidden md:flex items-center gap-6">
               <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Services</Link>
               <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors text-sm">Pricing</Link>
@@ -336,6 +332,10 @@ export default function HomePage() {
             </nav>
             <div className="flex items-center gap-4">
               <a href="tel:506-333-6494" className="text-muted-foreground hover:text-primary transition-colors"><Phone className="w-5 h-5" /><span className="sr-only">Call Clean Cut Crew</span></a>
+            </div>
+            <div>
+              <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
+              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in the Quispamsis area, NB</p>
             </div>
           </div>
         </div>
