@@ -19,7 +19,7 @@ export default function HomePage() {
     setFormStatus("submitting")
     const form = e.currentTarget
     const formData = new FormData(form)
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "")
+    formData.append("access_key", WEB3FORMS_KEY)
     formData.append("subject", "New Quote Request - Clean Cut Crew")
     try {
       const response = await fetch(
