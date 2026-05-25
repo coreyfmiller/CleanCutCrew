@@ -19,13 +19,17 @@ export default function HomePage() {
     setFormStatus("submitting")
     const form = e.currentTarget
     const formData = new FormData(form)
-    formData.append("access_key", WEB3FORMS_KEY)
-    formData.append("subject", "New Quote Request - Clean Cut Crew")
     try {
-      const response = await fetch(
-        "https://api.web3forms.com/submit",
-        { method: "POST", body: formData }
-      )
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      })
       const result = await response.json()
       if (result.success) {
         setFormStatus("success")
@@ -246,7 +250,6 @@ export default function HomePage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
-                      <input type="hidden" name="from_name" value="Clean Cut Crew Website" />
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Your name" />
