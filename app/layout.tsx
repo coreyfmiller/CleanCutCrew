@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Clean Cut Crew | Lawn & Yard Services',
-  description: 'Professional lawn mowing and yard services by Ryder, Aiden & Jaxon. Affordable prices, friendly local service, and satisfaction guaranteed.',
-  keywords: ['lawn mowing', 'yard services', 'lawn care', 'whipper snipping', 'trash bin service', 'local lawn service'],
+  title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
+  description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton & surrounding areas. Reliable service, fair prices, free quotes. Call Ryder, Aiden & Jaxon today.',
+  keywords: ['lawn mowing Quispamsis', 'yard services Rothesay', 'lawn care Kennebecasis Valley', 'trimming', 'yard cleanup', 'Hampton lawn service', 'New Brunswick lawn care'],
 }
 
 export default function RootLayout({

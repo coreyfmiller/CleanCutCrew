@@ -1,26 +1,60 @@
-import { Phone, Mail, CheckCircle, Leaf, Trash2, Scissors, Star, Clock, DollarSign, Users } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { Phone, Mail, CheckCircle, Leaf, Trash2, Scissors, Star, Clock, DollarSign, Users, Menu, X, MapPin, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="w-[120px]" />
+          <Image
+            src="/logo.png"
+            alt="Clean Cut Crew"
+            width={120}
+            height={53}
+            className="h-9 w-auto"
+          />
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
             <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
-            <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+            <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
             <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
           </nav>
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="#contact">Get Free Quote</Link>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90">
+              <Link href="#contact">Get Free Quote</Link>
+            </Button>
+            <button
+              className="md:hidden p-2 text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border bg-background">
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link href="#services" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-primary transition-colors py-2">Services</Link>
+              <Link href="#pricing" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-primary transition-colors py-2">Pricing</Link>
+              <Link href="#about" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-primary transition-colors py-2">About</Link>
+              <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-foreground hover:text-primary transition-colors py-2">Contact</Link>
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
+                <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>Get Free Quote</Link>
+              </Button>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -33,27 +67,30 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-8wG8SKQ5cPCbnFV9l7tikFu0kH88p5.png"
-              alt="Clean Cut Crew - Lawn & Yard Services by Ryder, Aiden & Jaxon"
+              src="/logo.png"
+              alt="Clean Cut Crew - Lawn & Yard Services"
               width={650}
               height={390}
-              className="mx-auto mb-8 w-full max-w-lg lg:max-w-xl"
+              className="mx-auto mb-8 w-full max-w-lg lg:max-w-xl drop-shadow-2xl"
               priority
             />
-            <p className="text-2xl md:text-3xl text-white font-medium mb-8 text-pretty drop-shadow-lg">
-              Professional lawn mowing and yard services by Ryder, Aiden & Jaxon. 
-              Friendly local service with affordable prices and satisfaction guaranteed.
+            <p className="text-2xl md:text-3xl text-white font-medium mb-8 text-pretty [text-shadow:_0_2px_12px_rgb(0_0_0_/_60%)]">
+              Professional lawn mowing and yard services by Ryder, Aiden & Jaxon.
             </p>
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <MapPin className="w-5 h-5 text-primary [filter:drop-shadow(0_1px_3px_rgb(0_0_0_/_40%))]" />
+              <span className="text-white/90 text-lg [text-shadow:_0_1px_6px_rgb(0_0_0_/_50%)]">Serving Quispamsis & surrounding areas</span>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8">
+              <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 shadow-lg">
                 <Link href="#contact">Get Your Free Quote</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-primary text-primary hover:bg-primary/10 text-lg px-8">
+              <Button size="lg" variant="outline" asChild className="border-white/80 text-white hover:bg-white/10 text-lg px-8 shadow-lg">
                 <Link href="#services">View Services</Link>
               </Button>
             </div>
@@ -74,7 +111,7 @@ export default function Home() {
               <span className="text-lg ml-2">All Summer Long!</span>
             </div>
             <p className="text-primary-foreground/90 max-w-xs">
-              Includes lawn mowing and whipper snipping all summer long!
+              Lawn mowing and trimming all summer — one flat rate, no surprises.
             </p>
           </div>
         </div>
@@ -83,11 +120,11 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">What We Do</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Professional lawn and yard care services to keep your property looking its best
+            Reliable lawn and yard care to keep your property looking sharp
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <Card className="bg-card border-border hover:border-primary transition-colors">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -95,7 +132,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Lawn Mowing</h3>
                 <p className="text-muted-foreground">
-                  Professional lawn cutting to keep your grass at the perfect height
+                  Regular cuts to keep your grass at the perfect height all season
                 </p>
               </CardContent>
             </Card>
@@ -105,9 +142,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Scissors className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Whipper Snipping</h3>
+                <h3 className="text-xl font-semibold mb-2">Trimming & Edging</h3>
                 <p className="text-muted-foreground">
-                  Edge trimming for a clean, polished look around borders and obstacles
+                  Clean edges along walkways, fences, and garden beds
                 </p>
               </CardContent>
             </Card>
@@ -117,22 +154,31 @@ export default function Home() {
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Yard Care</h3>
+                <h3 className="text-xl font-semibold mb-2">Yard Cleanup</h3>
                 <p className="text-muted-foreground">
-                  Clean & professional yard care to maintain your outdoor space
+                  General tidying and maintenance to keep your outdoor space in order
                 </p>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Trash Bin Add-on */}
+          <div className="mt-8 max-w-5xl mx-auto">
             <Card className="bg-card border-border hover:border-primary transition-colors">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trash2 className="w-8 h-8 text-primary" />
+              <CardContent className="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                    <Trash2 className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Trash Bin Service</h4>
+                    <p className="text-muted-foreground text-sm">We&apos;ll take your bins to the curb and bring them back</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Trash Bin Service</h3>
-                <p className="text-muted-foreground">
-                  $30 for 2 trash bins - we&apos;ll take them to the curb and back
-                </p>
+                <div className="text-center sm:text-right">
+                  <span className="text-2xl font-bold text-primary">$30</span>
+                  <span className="text-muted-foreground"> / 2 bins</span>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -144,7 +190,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Simple Pricing</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Transparent, affordable pricing for all your lawn care needs
+            Straightforward rates — no hidden fees, no contracts
           </p>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="bg-card border-2 border-primary relative overflow-hidden">
@@ -153,26 +199,26 @@ export default function Home() {
               </div>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-2">Summer Package</h3>
-                <p className="text-muted-foreground mb-4">All summer lawn care</p>
+                <p className="text-muted-foreground mb-4">Full-season lawn care, one flat rate</p>
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-primary">$900</span>
                   <span className="text-muted-foreground">/season</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span>Lawn mowing all summer</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Whipper snipping included</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span>Trimming & edging included</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span>Regular scheduled visits</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span>Satisfaction guaranteed</span>
                   </li>
                 </ul>
@@ -184,117 +230,46 @@ export default function Home() {
 
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-2">Custom Pricing</h3>
-                <p className="text-muted-foreground mb-4">One-time or custom service</p>
+                <h3 className="text-2xl font-bold mb-2">Per-Visit Service</h3>
+                <p className="text-muted-foreground mb-4">One-time or as-needed visits</p>
                 <div className="mb-6">
-                  <span className="text-5xl font-bold text-primary">Free</span>
-                  <span className="text-muted-foreground"> Quote</span>
+                  <span className="text-5xl font-bold text-primary">Custom</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Free on-site assessment</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span>Free on-site estimate</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>One-time service available</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span>One-time or recurring</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Custom scheduling</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span>Flexible scheduling</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span>No obligation</span>
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10" size="lg" asChild>
-                  <Link href="#contact">Request Quote</Link>
+                  <Link href="#contact">Request a Quote</Link>
                 </Button>
               </CardContent>
             </Card>
-          </div>
-
-          {/* Trash Bin Add-on */}
-          <div className="mt-8 max-w-4xl mx-auto">
-            <Card className="bg-secondary border-border">
-              <CardContent className="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                    <Trash2 className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Trash Bin Service Add-on</h4>
-                    <p className="text-muted-foreground text-sm">We&apos;ll handle your bins on collection day</p>
-                  </div>
-                </div>
-                <div className="text-center sm:text-right">
-                  <span className="text-2xl font-bold text-primary">$30</span>
-                  <span className="text-muted-foreground"> for 2 bins</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-secondary/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Clean Cut Crew?</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">Friendly Local Service</h3>
-              <p className="text-muted-foreground text-sm">
-                We&apos;re your neighbors, dedicated to keeping our community beautiful
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">Affordable Prices</h3>
-              <p className="text-muted-foreground text-sm">
-                Quality lawn care that won&apos;t break the bank
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">Fast & Reliable</h3>
-              <p className="text-muted-foreground text-sm">
-                We show up on time and get the job done right
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">Satisfaction Guaranteed</h3>
-              <p className="text-muted-foreground text-sm">
-                We&apos;re not happy until you&apos;re happy with the results
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet the Crew</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We&apos;re Ryder, Aiden, and Jaxon – three hardworking young adults passionate about 
-              keeping your yard looking its best. We take pride in our work and treat every lawn 
-              like it&apos;s our own.
+              We&apos;re Ryder, Aiden, and Jaxon — three guys passionate about keeping yards 
+              looking their best. We take pride in our work and treat every lawn like it&apos;s our own.
             </p>
             <div className="grid sm:grid-cols-3 gap-8">
               <div className="bg-card border border-border rounded-lg p-6">
@@ -323,53 +298,138 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-primary">
+      {/* Contact / Quote Section */}
+      <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">
-              Contact Ryder, Aiden & Jaxon Today!
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+              Get Your Free Quote
             </h2>
-            <p className="text-primary-foreground/90 mb-8 text-lg">
-              Get your free quote – we&apos;ll come look at your lawn for free!
+            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+              We&apos;ll swing by and give you an honest estimate — no cost, no pressure. 
+              Serving Quispamsis, Rothesay, Hampton, and surrounding areas.
             </p>
-            
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              <Card className="bg-primary-foreground/10 border-primary-foreground/20">
-                <CardContent className="p-6">
-                  <Phone className="w-8 h-8 text-primary-foreground mx-auto mb-3" />
-                  <h3 className="font-semibold text-primary-foreground mb-2">Call Us</h3>
-                  <div className="space-y-1 text-primary-foreground/90">
-                    <p>Ryder: <a href="tel:506-333-6494" className="hover:underline">506-333-6494</a></p>
-                    <p>Aiden: <a href="tel:506-566-5824" className="hover:underline">506-566-5824</a></p>
-                    <p>Jaxon: <a href="tel:506-650-7074" className="hover:underline">506-650-7074</a></p>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-primary-foreground/10 border-primary-foreground/20">
-                <CardContent className="p-6">
-                  <Mail className="w-8 h-8 text-primary-foreground mx-auto mb-3" />
-                  <h3 className="font-semibold text-primary-foreground mb-2">Email Us</h3>
-                  <a 
-                    href="mailto:c.c.crew.mowing@gmail.com" 
-                    className="text-primary-foreground/90 hover:underline break-all"
-                  >
-                    c.c.crew.mowing@gmail.com
-                  </a>
-                </CardContent>
-              </Card>
-            </div>
 
-            <Button 
-              size="lg" 
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 text-lg px-8"
-              asChild
-            >
-              <a href="mailto:c.c.crew.mowing@gmail.com?subject=Free%20Quote%20Request">
-                Request Your Free Quote
-              </a>
-            </Button>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Contact Form */}
+              <Card className="bg-card border-border">
+                <CardContent className="p-6 md:p-8">
+                  <h3 className="text-xl font-semibold mb-6">Request a Quote</h3>
+                  <form action="mailto:c.c.crew.mowing@gmail.com" method="POST" encType="text/plain" className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Your phone number"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Your email (optional)"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2">Tell us about your yard</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                        placeholder="Yard size, services needed, preferred schedule..."
+                      />
+                    </div>
+                    <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" size="lg">
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Quote Request
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+
+              {/* Contact Info */}
+              <div className="space-y-6">
+                <Card className="bg-card border-border">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Phone className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2">Call or Text</h3>
+                        <div className="space-y-1 text-muted-foreground">
+                          <p>Ryder: <a href="tel:506-333-6494" className="text-primary hover:underline">506-333-6494</a></p>
+                          <p>Aiden: <a href="tel:506-566-5824" className="text-primary hover:underline">506-566-5824</a></p>
+                          <p>Jaxon: <a href="tel:506-650-7074" className="text-primary hover:underline">506-650-7074</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Mail className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2">Email</h3>
+                        <a 
+                          href="mailto:c.c.crew.mowing@gmail.com" 
+                          className="text-primary hover:underline break-all"
+                        >
+                          c.c.crew.mowing@gmail.com
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card border-border">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold mb-2">Service Area</h3>
+                        <p className="text-muted-foreground">
+                          Quispamsis, Rothesay, Hampton, and surrounding areas in the Kennebecasis Valley
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-primary border-primary">
+                  <CardContent className="p-6 text-center">
+                    <p className="text-primary-foreground font-medium mb-1">Quick response guaranteed</p>
+                    <p className="text-primary-foreground/80 text-sm">
+                      We typically get back to you within a few hours
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -379,8 +439,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm text-center">
-              © {new Date().getFullYear()} Clean Cut Crew. Lawn & Yard Services by Ryder, Aiden & Jaxon.
+              © {new Date().getFullYear()} Clean Cut Crew. Lawn & Yard Services in Quispamsis & area.
             </p>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Services</Link>
+              <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors text-sm">Pricing</Link>
+              <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors text-sm">About</Link>
+              <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link>
+            </nav>
             <div className="flex items-center gap-4">
               <a href="mailto:c.c.crew.mowing@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
