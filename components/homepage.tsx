@@ -101,18 +101,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-8 bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center md:text-left">
-            <div className="flex items-center gap-2">
-              <Star className="w-8 h-8 text-primary-foreground" />
-              <span className="text-2xl md:text-3xl font-bold text-primary-foreground">SUMMER DEAL</span>
-            </div>
-            <div className="text-primary-foreground">
-              <span className="text-4xl md:text-5xl font-bold">$900</span>
-              <span className="text-lg ml-2">All Summer Long!</span>
-            </div>
-            <p className="text-primary-foreground/90 max-w-xs">Lawn mowing and trimming all summer — one flat rate, no surprises.</p>
+      <section className="py-10 bg-primary">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Star className="w-7 h-7 text-primary-foreground" />
+            <span className="text-2xl md:text-3xl font-bold text-primary-foreground">SUMMER DEAL</span>
+          </div>
+          <p className="text-primary-foreground/90 mb-4 text-lg">Lawn mowing and trimming all summer — one flat rate, no surprises.</p>
+          <div className="text-primary-foreground">
+            <span className="text-5xl md:text-6xl font-bold">$900</span>
+            <span className="text-xl ml-3">All Summer Long!</span>
           </div>
         </div>
       </section>
