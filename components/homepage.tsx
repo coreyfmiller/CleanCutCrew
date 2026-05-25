@@ -42,14 +42,14 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="w-9" />
+          <div className="w-[140px]" />
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
             <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
             <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
             <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 w-[140px] justify-end">
             <Button asChild className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90">
               <Link href="#contact">Get Free Quote</Link>
             </Button>
