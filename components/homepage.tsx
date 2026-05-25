@@ -330,13 +330,11 @@ export default function HomePage() {
               <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors text-sm">About</Link>
               <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link>
             </nav>
-            <div className="flex items-center gap-4">
-              <a href="tel:506-333-6494" className="text-muted-foreground hover:text-primary transition-colors"><Phone className="w-5 h-5" /><span className="sr-only">Call Clean Cut Crew</span></a>
-            </div>
             <div>
               <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
               <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in the Quispamsis area, NB</p>
             </div>
+            <p className="text-muted-foreground/60 text-xs">Built by <a href="https://fundylogic.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">FundyLogic</a></p>
           </div>
         </div>
       </footer>
