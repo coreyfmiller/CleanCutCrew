@@ -232,7 +232,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free Quote</h2>
-            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">We&#39;ll swing by and give you an honest estimate — no cost, no pressure. Serving Quispamsis, Rothesay, Hampton, and surrounding areas.</p>
+            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">We&#39;ll swing by and give you an honest estimate — no cost, no pressure. Serving Quispamsis, Rothesay, and surrounding areas.</p>
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="bg-card border-border">
                 <CardContent className="p-6 md:p-8">
@@ -304,7 +304,7 @@ export default function HomePage() {
                       <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0"><MapPin className="w-6 h-6 text-primary" /></div>
                       <div>
                         <h3 className="font-semibold mb-2">Service Area</h3>
-                        <p className="text-muted-foreground">Quispamsis, Rothesay, Hampton, and surrounding areas in the Kennebecasis Valley</p>
+                        <p className="text-muted-foreground">Quispamsis, Rothesay, and surrounding areas in the Kennebecasis Valley</p>
                       </div>
                     </div>
                   </CardContent>
@@ -326,7 +326,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
-              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in Quispamsis, Rothesay, Hampton &amp; the Kennebecasis Valley, NB</p>
+              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in the Quispamsis area, NB</p>
             </div>
             <nav className="hidden md:flex items-center gap-6">
               <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Services</Link>
