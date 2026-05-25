@@ -104,7 +104,7 @@ export default function HomePage() {
       <section className="py-10 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <Star className="w-7 h-7 text-primary-foreground fill-primary-foreground" />
+            <Star className="w-7 h-7 text-primary-foreground" />
             <span className="text-2xl md:text-3xl font-bold text-primary-foreground">SUMMER DEAL</span>
             <span className="text-primary-foreground/60 text-2xl font-light">—</span>
             <span className="text-3xl md:text-4xl font-bold text-primary-foreground">$900</span>
