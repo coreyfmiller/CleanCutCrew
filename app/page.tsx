@@ -10,7 +10,7 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <span className="text-xl font-bold text-primary">Clean Cut Crew</span>
+          <div className="w-[120px]" />
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link>
             <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
@@ -378,13 +378,6 @@ export default function Home() {
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <Image
-              src="/logo.png"
-              alt="Clean Cut Crew Logo"
-              width={120}
-              height={53}
-              className="h-10 w-auto"
-            />
             <p className="text-muted-foreground text-sm text-center">
               © {new Date().getFullYear()} Clean Cut Crew. Lawn & Yard Services by Ryder, Aiden & Jaxon.
             </p>
