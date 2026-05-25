@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
 
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ""
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "d14ef594-3c1e-4dae-92e9-44c28e5853fa"
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,17 +19,13 @@ export default function HomePage() {
     setFormStatus("submitting")
     const form = e.currentTarget
     const formData = new FormData(form)
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "")
+    formData.append("subject", "New Quote Request - Clean Cut Crew")
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          phone: formData.get("phone"),
-          email: formData.get("email"),
-          message: formData.get("message"),
-        }),
-      })
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        { method: "POST", body: formData }
+      )
       const result = await response.json()
       if (result.success) {
         setFormStatus("success")
@@ -91,7 +87,7 @@ export default function HomePage() {
             </p>
             <div className="flex items-center justify-center gap-2 mb-8">
               <MapPin className="w-5 h-5 text-primary [filter:drop-shadow(0_1px_3px_rgb(0_0_0_/_40%))]" />
-              <span className="text-white/90 text-lg [text-shadow:_0_1px_6px_rgb(0_0_0_/_50%)]">Serving Quispamsis &amp; surrounding areas</span>
+              <span className="text-white/90 text-lg [text-shadow:_0_1px_6px_rgb(0_0_0_/_50%)]">Serving Quispamsis, Rothesay, Hampton, Saint John &amp; area</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 shadow-lg">
@@ -154,8 +150,8 @@ export default function HomePage() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center"><Trash2 className="w-6 h-6 text-primary" /></div>
                   <div>
-                    <h4 className="font-semibold">Trash Bin Service</h4>
-                    <p className="text-muted-foreground text-sm">We&#39;ll take your bins to the curb and bring them back</p>
+                    <h4 className="font-semibold">Garbage Can Cleaning</h4>
+                    <p className="text-muted-foreground text-sm">We&#39;ll clean your garbage cans inside and out</p>
                   </div>
                 </div>
                 <div className="text-center sm:text-right">
@@ -236,7 +232,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Get Your Free Quote</h2>
-            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">We&#39;ll swing by and give you an honest estimate — no cost, no pressure. Serving Quispamsis and surrounding area.</p>
+            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">We&#39;ll swing by and give you an honest estimate — no cost, no pressure. Serving Quispamsis, Rothesay, Hampton, Saint John, and parts of Kingston Peninsula.</p>
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="bg-card border-border">
                 <CardContent className="p-6 md:p-8">
@@ -307,7 +303,7 @@ export default function HomePage() {
                       <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0"><MapPin className="w-6 h-6 text-primary" /></div>
                       <div>
                         <h3 className="font-semibold mb-2">Service Area</h3>
-                        <p className="text-muted-foreground">Quispamsis and surrounding area</p>
+                        <p className="text-muted-foreground">Quispamsis, Rothesay, Hampton, Saint John, and parts of Kingston Peninsula — contact us for details</p>
                       </div>
                     </div>
                   </CardContent>
@@ -335,7 +331,7 @@ export default function HomePage() {
             </nav>
             <div>
               <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
-              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in the Quispamsis area, NB</p>
+              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in Quispamsis, Rothesay, Hampton, Saint John &amp; area, NB</p>
             </div>
             <p className="text-muted-foreground/60 text-xs">Built by <a href="https://fundylogic.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">FundyLogic</a></p>
           </div>

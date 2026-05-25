@@ -10,14 +10,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
-  description: 'Lawn mowing, trimming, and yard care in Quispamsis & surrounding area. Reliable service, fair prices, free quotes. Call Ryder, Aiden & Jaxon today.',
+  description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton, Saint John & surrounding areas. Reliable service, fair prices, free quotes. Call Ryder, Aiden & Jaxon today.',
   metadataBase: new URL('https://cleancutcrew.ca'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
-    description: 'Lawn mowing, trimming, and yard care in Quispamsis & surrounding area. Reliable service, fair prices, free quotes.',
+    description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton, Saint John & surrounding areas. Reliable service, fair prices, free quotes.',
     url: 'https://cleancutcrew.ca',
     siteName: 'Clean Cut Crew',
     locale: 'en_CA',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
-    description: 'Lawn mowing, trimming, and yard care in Quispamsis & surrounding area.',
+    description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton, Saint John & surrounding areas.',
     images: ['/logo.png'],
   },
   robots: {
@@ -58,11 +58,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "HomeAndConstructionBusiness",
               "name": "Clean Cut Crew",
-              "description": "Lawn mowing, trimming, and yard care in Quispamsis and surrounding area.",
+              "description": "Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton, Saint John and surrounding areas.",
               "url": "https://cleancutcrew.ca",
               "telephone": "+1-506-333-6494",
               "areaServed": [
-                { "@type": "City", "name": "Quispamsis", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } }
+                { "@type": "City", "name": "Quispamsis", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } },
+                { "@type": "City", "name": "Rothesay", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } },
+                { "@type": "City", "name": "Hampton", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } },
+                { "@type": "City", "name": "Saint John", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } }
               ],
               "address": {
                 "@type": "PostalAddress",
@@ -75,7 +78,7 @@ export default function RootLayout({
                 "latitude": 45.4331,
                 "longitude": -65.9497
               },
-              "serviceType": ["Lawn Mowing", "Yard Trimming", "Yard Cleanup", "Trash Bin Service"],
+              "serviceType": ["Lawn Mowing", "Yard Trimming", "Yard Cleanup", "Garbage Can Cleaning"],
               "priceRange": "$",
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
