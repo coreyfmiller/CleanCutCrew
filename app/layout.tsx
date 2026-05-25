@@ -11,7 +11,36 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
   description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton & surrounding areas. Reliable service, fair prices, free quotes. Call Ryder, Aiden & Jaxon today.',
-  keywords: ['lawn mowing Quispamsis', 'yard services Rothesay', 'lawn care Kennebecasis Valley', 'trimming', 'yard cleanup', 'Hampton lawn service', 'New Brunswick lawn care'],
+  metadataBase: new URL('https://cleancutcrew.ca'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
+    description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton & surrounding areas. Reliable service, fair prices, free quotes.',
+    url: 'https://cleancutcrew.ca',
+    siteName: 'Clean Cut Crew',
+    locale: 'en_CA',
+    type: 'website',
+    images: [
+      {
+        url: '/logo.png',
+        width: 650,
+        height: 390,
+        alt: 'Clean Cut Crew - Lawn and Yard Services in Quispamsis NB',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Clean Cut Crew | Lawn & Yard Services in Quispamsis, NB',
+    description: 'Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton & surrounding areas.',
+    images: ['/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -21,6 +50,46 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} bg-background`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HomeAndConstructionBusiness",
+              "name": "Clean Cut Crew",
+              "description": "Lawn mowing, trimming, and yard care in Quispamsis, Rothesay, Hampton and surrounding areas.",
+              "url": "https://cleancutcrew.ca",
+              "telephone": "+1-506-333-6494",
+              "areaServed": [
+                { "@type": "City", "name": "Quispamsis", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } },
+                { "@type": "City", "name": "Rothesay", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } },
+                { "@type": "City", "name": "Hampton", "containedInPlace": { "@type": "AdministrativeArea", "name": "New Brunswick" } }
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Quispamsis",
+                "addressRegion": "NB",
+                "addressCountry": "CA"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 45.4331,
+                "longitude": -65.9497
+              },
+              "serviceType": ["Lawn Mowing", "Yard Trimming", "Yard Cleanup", "Trash Bin Service"],
+              "priceRange": "$",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "08:00",
+                "closes": "20:00"
+              },
+              "sameAs": []
+            })
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

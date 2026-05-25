@@ -75,12 +75,13 @@ export default function HomePage() {
 
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/hero-grass.jpg" alt="Lush green lawn" fill className="object-cover" priority />
+          <Image src="/hero-grass.jpg" alt="Freshly mowed lawn in Quispamsis, New Brunswick" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <Image src="/logo.png" alt="Clean Cut Crew" width={650} height={390} className="mx-auto mb-8 w-full max-w-lg lg:max-w-xl drop-shadow-2xl" priority />
+            <Image src="/logo.png" alt="Clean Cut Crew - Lawn and Yard Services in Quispamsis NB" width={650} height={390} className="mx-auto mb-8 w-full max-w-lg lg:max-w-xl drop-shadow-2xl" priority />
+            <h1 className="sr-only">Clean Cut Crew — Lawn Mowing and Yard Services in Quispamsis, New Brunswick</h1>
             <p className="text-2xl md:text-3xl text-white font-medium mb-8 text-pretty [text-shadow:_0_2px_12px_rgb(0_0_0_/_60%)]">
               Professional lawn mowing and yard services by Ryder, Aiden &amp; Jaxon.
             </p>
@@ -323,7 +324,10 @@ export default function HomePage() {
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-sm text-center">&copy; {new Date().getFullYear()} Clean Cut Crew. Lawn &amp; Yard Services in Quispamsis &amp; area.</p>
+            <div className="text-center md:text-left">
+              <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
+              <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in Quispamsis, Rothesay, Hampton &amp; the Kennebecasis Valley, NB</p>
+            </div>
             <nav className="hidden md:flex items-center gap-6">
               <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">Services</Link>
               <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors text-sm">Pricing</Link>
@@ -331,7 +335,7 @@ export default function HomePage() {
               <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link>
             </nav>
             <div className="flex items-center gap-4">
-              <a href="tel:506-333-6494" className="text-muted-foreground hover:text-primary transition-colors"><Phone className="w-5 h-5" /><span className="sr-only">Phone</span></a>
+              <a href="tel:506-333-6494" className="text-muted-foreground hover:text-primary transition-colors"><Phone className="w-5 h-5" /><span className="sr-only">Call Clean Cut Crew</span></a>
             </div>
           </div>
         </div>
