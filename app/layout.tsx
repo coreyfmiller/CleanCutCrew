@@ -86,7 +86,7 @@ export default function RootLayout({
                 "opens": "08:00",
                 "closes": "20:00"
               },
-              "sameAs": []
+              "sameAs": ["https://www.facebook.com/profile.php?id=61589776647208"]
             })
           }}
         />

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Phone, Mail, CheckCircle, Leaf, Trash2, Scissors } from "lucide-react"
-import { Star, Menu, X, MapPin, Send, Loader2 } from "lucide-react"
+import { Star, Menu, X, MapPin, Send, Loader2, Facebook } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
@@ -326,6 +326,10 @@ export default function HomePage() {
               <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors text-sm">About</Link>
               <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link>
             </nav>
+            <a href="https://www.facebook.com/profile.php?id=61589776647208" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Facebook className="w-5 h-5" />
+              <span className="sr-only">Clean Cut Crew on Facebook</span>
+            </a>
             <div>
               <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} Clean Cut Crew</p>
               <p className="text-muted-foreground text-xs mt-1">Lawn &amp; Yard Services in Quispamsis, Rothesay, Hampton, Saint John &amp; area, NB</p>
