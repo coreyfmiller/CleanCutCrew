@@ -243,6 +243,7 @@ export default function HomePage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
+                      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Your name" />
