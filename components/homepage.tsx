@@ -82,6 +82,9 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center">
             <Image src="/logo.png" alt="Clean Cut Crew - Lawn and Yard Services in Quispamsis NB" width={650} height={390} className="mx-auto mb-8 w-full max-w-lg lg:max-w-xl drop-shadow-2xl" priority />
             <h1 className="sr-only">Clean Cut Crew — Lawn Mowing and Yard Services in Quispamsis, New Brunswick</h1>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+              <span className="text-sm text-white/90">🌱 Young Entrepreneur Initiative</span>
+            </div>
             <p className="text-2xl md:text-3xl text-white font-medium mb-8 text-pretty [text-shadow:_0_2px_12px_rgb(0_0_0_/_60%)]">
               Professional lawn mowing and yard services by Ryder, Aiden &amp; Jaxon.
             </p>
@@ -222,12 +225,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-6 bg-card border-y border-border">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">🌱 <span className="font-medium text-foreground">Young Entrepreneur Initiative</span> — Supporting local youth-run businesses in our community</p>
         </div>
       </section>
 
