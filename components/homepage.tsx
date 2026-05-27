@@ -225,6 +225,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-6 bg-card border-y border-border">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">🌱 <span className="font-medium text-foreground">Young Entrepreneur Initiative</span> — Supporting local youth-run businesses in our community</p>
+        </div>
+      </section>
+
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
