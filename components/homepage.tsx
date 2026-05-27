@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/hero-grass.jpg" alt="Freshly mowed lawn in Quispamsis, New Brunswick" fill className="object-cover" priority />
+          <Image src="/hero.png" alt="Freshly mowed lawn in Quispamsis, New Brunswick" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="container mx-auto px-4 relative">
